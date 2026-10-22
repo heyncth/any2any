@@ -1,0 +1,37 @@
+[project]
+name = "any2any"
+version = "0.1.0"
+description = "Local-first file converter — GUI/CLI over a registry-driven conversion engine"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.12"
+dependencies = [
+    "click>=8.1",
+    "pillow>=10.0",
+    "pyyaml>=6.0",
+    "gpxpy>=1.6",
+    "qrcode>=7.4",
+    "platformdirs>=4.0",
+    "markdown-it-py>=3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+any2any = "any2any_cli.main:cli"
+
+[project.entry-points."any2any.adapters"]
+# external format packs register here
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
